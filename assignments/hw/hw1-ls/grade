@@ -1,2 +1,12 @@
-/ 100
+100/ 100
+Last update Fri May 1 23:56:40 2015 -0700
+
+Error checking for syscalls
+
+file: [src/ls.cpp] -15
+
+test ls output
++15: Extra - coloring works
+
+
 
