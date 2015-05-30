@@ -116,8 +116,7 @@ This message can be customized however you desire.
 Additional useful information you can output is the function it’s in, the line it’s on in your code, among other things - the choice is yours!
 But beware, with great power comes great responsibility!
 Outputting error messages that are irrelevant or unnecessarily long are unlikely to be very helpful.
-
-**P.S.** Although we only talk about `perror` here, in general when programming, if a function can return an error, you MUST check to see if it succeeded.
+**IMPORTANT:** Although we only talk about `perror` here, in general when programming, if a function can return an error, you MUST check to see if it succeeded.
 If you make this a habit after leaving this class, you will save yourself thousands of hours of frustrating debugging.
 
 
