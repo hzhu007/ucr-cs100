@@ -3,7 +3,7 @@
 Basically a [function pointer](http://en.wikipedia.org/wiki/Function_pointer) is still a kind of pointer. It is similar to the pointers we are already familiar with just like `int *ptr_int` and `char *ptr_c`.
 But instead of referring to data values, a function pointer points to a piece of executable code within memory, aka a function.
 While our program is running, our functions are stored in code segment and the entrance of each function will have a correspondent address in memory.
-Therefore when dereferenced, a function pointer can be used to invoke the function it points to and pass it arguments just like a normal function call.
+Therefore, when dereferenced, a function pointer can be used to invoke the function it points to and pass it arguments just like a normal function call.
 
 Theory is always tricky.
 Let's learn from some real codes.
@@ -28,10 +28,10 @@ int main() {
 ```
 Here we have a function `hello() `. 
 This function returns `void` and doesn't have any parameter.
-We creat a function pointer `funcPtr` pointing to `hello()` in `main()`.
+We create a function pointer `funcPtr` pointing to `hello()` in `main()`.
 
-Basically this is similar to creating any other pointer - it has to have a name and it use the `*` notation to signify that it is a pointer.
-Howerver there are several differences.
+Basically this is similar to creating any other pointer - it has to have a name and it uses the `*` notation to signify that it is a pointer.
+However there are several differences.
 First when declaring a normal pointer, we have to declare the data type of the variable this pointer pointing to, like `int` and `char`, just before the pointer name.
 As to a function pointer, the data type before the pointer name is the return type of the function pointed by this function pointer.
 In the case above, we are creating a function pointer to function `hello()` that returns `void` so the return type must be `void`.
@@ -45,18 +45,17 @@ Putting it all together we get `void (*funcPtr)()`, a pointer to a function that
 After declaration, we can assign the `hello()` function to the function pointer like this `void (*funcPtr)() = hello`.
 Recall that a function name is actually the address of this function and it can be assigned to a function pointer.
 Only in the case of a function pointer, the address of the function is the function name and we don't need the reference operator `&`.
-Howerver `void (*funcPtr)() = &hello` also works.
-I personally prefer the later assignment because it is uniform with all other pointers and a uniform and significant habit can always help avoiding some silly mistakes.
+However `void (*funcPtr)() = &hello` also works.
+I personally prefer the later assignment because it is uniform with all other pointers and a uniform and significant habit can always help avoid some silly mistakes.
 
 Then we dereference our pointer the same as we dereference any other pointer, by using the dereference operator `*`. 
 This gives us `*hello`.
 Ah-oh, never forget the parentheses around and after a function pointer, otherwise it isn't actual a function pointer.
-Thus we dereference and call our function pointer like this `(*funcPtr)()`.
+Thus, we dereference and call our function pointer like this `(*funcPtr)()`.
 In this case the function has no return value so there is no need to assign its return to any variable. 
 The function call can stand alone just the same as `hello()`.
 
-Although we lay stress on the parentheses around a function pointer.
-But actually function pointers are often treated and called as regular functions like this `funcPtr()`.
+Although we lay stress on the parentheses around a function pointer, actually function pointers are often treated and called as regular functions like this `funcPtr()`.
 It is the same as calling the function pointer with full syntax `(*funcPtr)()`.
 <!--We will get into function names later which will show why this works.-->
 
@@ -123,7 +122,7 @@ Both return an integer and both take two integers as parameters.
 Then we have a function `int domath(int (*mathop)(int, int), int x, int y)` taking a function pointer and two integers as parameters.
 The first parameter `int (*mathop)(int, int)` is a pointer to a function that takes two integers as input and returns an integer. 
 We have explained this thoroughly before, the syntax is no different here. 
-The last two parameters `int x` and `int y` are just integer taken by the `domath` function. 
+The last two parameters `int x` and `int y` are just integers taken by the `domath` function. 
 The `domath` function executes the function pointer `mathop` taking the integers `x` and `y`. 
 The execution of `domath` are somewhat new. 
 We are passing in the function names. 
@@ -157,8 +156,8 @@ Here is a sample code:
 ```
 void lengthyOperation(string input, void (*callback)(string status)) {
   // do a lengthy task here
-  // and end up with a status, suppose it is "finsihed" in this case
-  string status = "finsihed"
+  // and end up with a status, suppose it is "finished" in this case
+  string status = "finished"
   callback(status);
 }
 
