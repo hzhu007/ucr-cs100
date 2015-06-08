@@ -1,1 +1,33 @@
-/ 100
+115/ 100
+Last update Tue May 19 13:43:26 2015 -0700
+
+  -25: memory leak found in valgrind                                                          
+==39064== 26 (16 direct, 10 indirect) bytes in 1 blocks are definitely lost in loss record 3 of 3 ==3│  39064== definitely lost: 16 bytes in 1 blocks  
+
+-----------------------------------------------------
+[1]  Input redirection from an existant file (25)
+-----------------------------------------------------
+[2]  Output redirection (>) to an non-existant file (15)
+-----------------------------------------------------
+[3]  Output append (>>) to an existing file (10)
+-----------------------------------------------------
+[4]  Command with one pipe (15)
+-----------------------------------------------------
+[5]  Command with more than one pipe (15)
+-----------------------------------------------------
+[6]  Input redirection with piping (5)
+-----------------------------------------------------
+[7]  Output redirection and piping (5)
+-----------------------------------------------------
+[8]  Input redirection, output redirection, and piping (10)
+-----------------------------------------------------
+  Extra 1: <<< (20)
+
+-----------------------------------------------------
+  Extra 2 (20)
+[rshell]celik$ extra2_1r
+[rshell]celik$ extra2_1r
+extra2_1a
+[rshell]celik$ cat: extra2_2r: No such file or directory
+[rshell]celik$ cat: extra2_2r: No such file or directory
+cat: extra2_2a: No such file or directory
